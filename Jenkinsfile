@@ -18,5 +18,14 @@ pipeline {
 			}
 		}
 
+    stage('docker')
+		{
+		  steps{
+		    script{
+		      sh "ansible-playbook MyAngularApp/ansible/docker.yml -i MyAngularApp/ansible/inventory/host.yml"
+		    }
+		  }
+		}
+
 	}
 }
